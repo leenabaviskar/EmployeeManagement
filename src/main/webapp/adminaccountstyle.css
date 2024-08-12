@@ -1,0 +1,58 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "poppins" , sans-serif;
+}
+
+
+
+.body{
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height:100vh ;
+	background: url(img/pexels-sevenstormphotography-443383.jpg);
+	background-size: cover;
+	background-position: center;
+	
+}
+.nav{
+	 width: 100%;
+	 height: 50px;
+	 color: rgb(0, 128, 0);
+	 background: lightseagreen;
+}
+.navbar a{
+	display: flex;
+	justify-content: center;
+	font-size: 20px;
+	font-weight: 300;
+	align-items: center;
+	text-decoration: none;
+
+}
+.navbar a h1{
+    font-size: 20px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, .8);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	text-align: center;
+	margin-top: 10px;
+	}
+	
+.wrapper{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	    padding: 40px;
+	
+		
+}
+.list h1{
+		font-size: 36px;
+	text-align: center;
+	padding-bottom: 42px;
+	}
+	
+
