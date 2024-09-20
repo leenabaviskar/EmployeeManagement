@@ -1,4 +1,4 @@
-package com.crudMvc.controller;
+wpackage com.crudMvc.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;

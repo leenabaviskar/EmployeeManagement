@@ -51,7 +51,4 @@ public class AddEmployeeServlet extends HttpServlet {
 		empService.save(emp);
 		response.sendRedirect("adminaccount.jsp");
 		
-		
-	}
-
-}
+	}}
