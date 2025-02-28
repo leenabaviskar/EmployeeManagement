@@ -37,13 +37,19 @@ public class AddEmployeeServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
 		response.setContentType("text/html");
-		String name= request.getParameter("name");
+		String firstname= request.getParameter("firstname");
+		String lastname= request.getParameter("lastname");
+		String mobile= request.getParameter("mobile");
 		String email= request.getParameter("email");
+		String address= request.getParameter("address");
 		int salary=Integer.parseInt(request.getParameter("salary"));
 		
 		Employee emp= new Employee();
-		emp.setEmpName(name);
+		emp.setEmpFirstName(firstname);
+		emp.setEmpLastName(lastname);
+		emp.setEmpMobile(mobile);
 		emp.setEmpEmail(email);
+		emp.setEmpAddress(address);
 		emp.setEmpSalary(salary);
 		
 		

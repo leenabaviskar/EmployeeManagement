@@ -23,10 +23,13 @@ public class EmployeeServiceImpClass implements EmployeeService
 		try 
 		{
 			Connection con= UtilConnectionClass.getConnection();
-			PreparedStatement ps= con.prepareStatement("insert into employee(employeename,employeeemail,employeesalary)values(?,?,?)");
-				ps.setString(1, emp.getEmpName());
-				ps.setString(2, emp.getEmpEmail());
-				ps.setInt(3, emp.getEmpSalary());
+			PreparedStatement ps= con.prepareStatement("insert into employeedata(employeefirstname, employeelastname, employeemobile, employeeemail, employeeaddress, employeesalary)values(?,?,?,?,?,?)");
+				ps.setString(1, emp.getEmpFirstName());
+				ps.setString(2, emp.getEmpLastName() );
+				ps.setString(3, emp.getEmpMobile() );
+				ps.setString(4, emp.getEmpEmail());
+				ps.setString(5, emp.getEmpAddress() );
+				ps.setInt(6, emp.getEmpSalary());
 			    ps.execute();
 			    ps.close();
 			    con.close();
@@ -44,7 +47,7 @@ public class EmployeeServiceImpClass implements EmployeeService
 		try 
 		{
 			Connection con= UtilConnectionClass.getConnection();
-			PreparedStatement ps= con.prepareStatement("delete from employee where employeeid=?");
+			PreparedStatement ps= con.prepareStatement("delete from employeedata where employeeid=?");
 				ps.setInt(1, id);
 			    ps.execute();
 			    ps.close();
@@ -66,19 +69,25 @@ public class EmployeeServiceImpClass implements EmployeeService
 		try 
 		{
 			
-			PreparedStatement ps= con.prepareStatement("select * from employee");
+			PreparedStatement ps= con.prepareStatement("select * from employeedata");
 				
 			    ResultSet rs=  ps.executeQuery();
 			    while(rs.next())
 			    {
 			    	int id=rs.getInt(1);
-			    	String name= rs.getString(2);
-			    	String email= rs.getString(3);
-			    	int sal=rs.getInt(4);
+			    	String firstName= rs.getString(2);
+			    	String lastName= rs.getString(3);
+			    	String mobile= rs.getString(4);
+			    	String email= rs.getString(5);
+			    	String address= rs.getString(6);
+			    	int sal=rs.getInt(7);
 			    	Employee emp= new Employee();
 			    	emp.setEmpId(id);
-			    	emp.setEmpName(name);
+			    	emp.setEmpFirstName(firstName);
+			    	emp.setEmpLastName(lastName);
+			    	emp.setEmpMobile(mobile);
 			    	emp.setEmpEmail(email);
+			    	emp.setEmpAddress(address);
 			    	emp.setEmpSalary(sal);
 			    	list.add(emp);
 			    }
@@ -101,7 +110,7 @@ public class EmployeeServiceImpClass implements EmployeeService
 		{
 			
 			Connection con= UtilConnectionClass.getConnection();
-			PreparedStatement ps= con.prepareStatement("select * from employee where employeeid=?");
+			PreparedStatement ps= con.prepareStatement("select * from employeedata where employeeid=?");
 			
 			    ps.setInt(1, id);
 			    ResultSet rs=ps.executeQuery();
@@ -109,13 +118,19 @@ public class EmployeeServiceImpClass implements EmployeeService
 			    while(rs.next())
 			    {
 			    	int eid=rs.getInt(1);
-			    	String ename= rs.getString(2);
-			    	String email=rs.getString(3);
-			    	int sal=rs.getInt(4);
+			    	String efirstname= rs.getString(2);
+			    	String elastname= rs.getString(3);
+			    	String emobile= rs.getString(4);
+			    	String email=rs.getString(5);
+			    	String eaddress= rs.getString(6);
+			    	int sal=rs.getInt(7);
 			    	
 			    	emp.setEmpId(eid);
-			    	emp.setEmpName(ename);
+			    	emp.setEmpFirstName(efirstname);
+			    	emp.setEmpLastName(elastname);
+			    	emp.setEmpMobile(emobile);
 			    	emp.setEmpEmail(email);
+			    	emp.setEmpAddress(eaddress);
 			    	emp.setEmpSalary(sal);
 			    	
 			 
@@ -135,11 +150,14 @@ public class EmployeeServiceImpClass implements EmployeeService
 	{
 		try {
 			Connection con=UtilConnectionClass.getConnection();
-			PreparedStatement ps=con.prepareStatement("UPDATE employee SET employeename=?, employeeemail =? ,employeesalary=? WHERE employeeid=?");
-			ps.setString(1, emp.getEmpName() );
-			ps.setString(2, emp.getEmpEmail());
-			ps.setInt(3, emp.getEmpSalary());
-			ps.setInt(4, emp.getEmpId());
+			PreparedStatement ps=con.prepareStatement("UPDATE employeedata SET employeefirstname=?,employeefirstname=?,employeemobile=?, employeeemail =?, employeeaddress=?, employeesalary=? WHERE employeeid=?");
+			ps.setString(1, emp.getEmpFirstName() );
+			ps.setString(2, emp.getEmpLastName() );
+			ps.setString(3, emp.getEmpMobile() );
+			ps.setString(4, emp.getEmpEmail());
+			ps.setString(5, emp.getEmpAddress() );
+			ps.setInt(6, emp.getEmpSalary());
+			ps.setInt(7, emp.getEmpId());
 			int noofrowupdated= ps.executeUpdate();
 			System.out.println(noofrowupdated);
 			ps.close();

@@ -11,7 +11,7 @@
 
 <meta charset="ISO-8859-1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Admin Account | Wipro</title>
+<title>Admin Account | GokulInfocare</title>
 <link rel="stylesheet" href="adminaccountstyle.css">
 
 </head>
@@ -53,8 +53,11 @@
 				<thead>
 					<tr>
 						<th>ID</th>
-						<th>Name</th>
+						<th>First Name</th>
+						<th>Last Name</th>
+						<th>Mobile</th>
 						<th>Email</th>
+						<th>Address</th>
 						<th>Salary</th>
 						<th>Actions</th>
 					</tr>
@@ -74,12 +77,27 @@
 						</td>
 						<td>
 						&nbsp;&nbsp;&nbsp;&nbsp;
-						<%=emp.getEmpName()%>
+						<%=emp.getEmpFirstName()%>
+						&nbsp;&nbsp;&nbsp;&nbsp;
+						</td>
+						<td>
+						&nbsp;&nbsp;&nbsp;&nbsp;
+						<%=emp.getEmpLastName()%>
+						&nbsp;&nbsp;&nbsp;&nbsp;
+						</td>
+						<td>
+						&nbsp;&nbsp;&nbsp;&nbsp;
+						<%=emp.getEmpMobile()%>
 						&nbsp;&nbsp;&nbsp;&nbsp;
 						</td>
 						<td>
 						&nbsp;&nbsp;&nbsp;&nbsp;
 						<%=emp.getEmpEmail()%>
+						&nbsp;&nbsp;&nbsp;&nbsp;
+						</td>
+						<td>
+						&nbsp;&nbsp;&nbsp;&nbsp;
+						<%=emp.getEmpAddress()%>
 						&nbsp;&nbsp;&nbsp;&nbsp;
 						</td>
 						<td>

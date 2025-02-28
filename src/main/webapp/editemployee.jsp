@@ -2,7 +2,7 @@
 <%@ page import="com.crudMvc.serviceImplementation.*"  %>
 <%@ page import="com.crudMvc.model.*" %>
 <!DOCTYPE html>
-<html>
+
 
 <head>
 	<meta charset="ISO-8859-1">
@@ -29,11 +29,23 @@
 		        <input type="hidden" placeholder="Id" name="id" value="<%= emp.getEmpId() %>" required>
 			
 			<div class="input-box">
-				<input type="text" placeholder="Name" name="name" value="<%= emp.getEmpName() %>" required>
+				<input type="text" placeholder="First Name" name="firstname" value="<%= emp.getEmpFirstName() %>" required>
+			
+			</div>
+			<div class="input-box">
+				<input type="text" placeholder="Last Name" name="lastname" value="<%= emp.getEmpLastName() %>" required>
+			
+			</div>
+			<div class="input-box">
+				<input type="tel" placeholder="Mobile" name="mobile" value="<%= emp.getEmpMobile() %>" required>
 			
 			</div>
 			<div class="input-box">
 				<input type="email" placeholder="Email" name="email" value="<%= emp.getEmpEmail() %>" required>
+				
+			</div>
+			<div class="input-box">
+				<input type="text" placeholder="Address" name="address" value="<%= emp.getEmpAddress() %>" required>
 				
 			</div>
 				<div class="input-box">
